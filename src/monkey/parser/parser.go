@@ -122,3 +122,8 @@ func (p *Parser) peekError(t token.TokenType) {
 		t, p.peekToken.Type)
 	p.errors = append(p.errors, msg)
 }
+
+type (
+	prefixParseFn func() ast.Expression
+	infixParseFn  func(ast.Expression) ast.Expression
+)
